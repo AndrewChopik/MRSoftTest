@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MRSoftTest</string>
+    <string name="app_title">News</string>
+
+    <string name="refresh_button">Refresh</string>
+
+    <string name="placeholder">Update this page, please.</string>
+
+    <string name="test_author">Holmes Lybrand</string>
+    <string name="test_date">05:25 12.12.2012</string>
+    <string name="test_title">Fact-checking Trump\'s move against Pelosi\'s Afghanistan trip - CNN</string>
+    <string name="test_description">Over the past few days, the political gridlock that\'s led to the longest government shutdown in US history has devolved into a tit-for-tat between House Speaker Nancy Pelosi and President Donald Trump.</string>
+</resources>
