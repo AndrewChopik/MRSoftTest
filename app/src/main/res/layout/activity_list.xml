@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         style="@style/ToolbarStyle"
         app:elevation="4dp"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <TextView
         android:id="@+id/placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/title_text_size"
-        android:textColor="@color/text_color_primary"
-        android:textStyle="italic"
-        android:gravity="center"
         android:layout_marginTop="24dp"
-        android:text="@string/placeholder"/>
+        android:gravity="center"
+        android:text="@string/placeholder"
+        android:textColor="@color/text_color_primary"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="italic" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

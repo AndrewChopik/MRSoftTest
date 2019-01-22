@@ -17,4 +17,8 @@ interface DataListView {
     fun hidePlaceholder()
 
     fun showData(news: List<News>)
+
+    fun showProgressBar()
+
+    fun hideProgressBar()
 }

@@ -31,6 +31,7 @@ class DataListActivity : AppCompatActivity(), DataListView {
         presenter.onAttach(this)
         initToolbar()
         initRecyclerView()
+        refreshLayout.setOnRefreshListener { presenter.loadData() }
     }
 
     override fun initToolbar() {
@@ -92,5 +93,13 @@ class DataListActivity : AppCompatActivity(), DataListView {
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDetach()
+    }
+
+    override fun showProgressBar() {
+        refreshLayout.isRefreshing = true
+    }
+
+    override fun hideProgressBar() {
+        refreshLayout.isRefreshing = false
     }
 }

@@ -31,34 +31,43 @@ class ListPresenterImpl<V : DataListView>
     }
 
     override fun loadData() {
+        view?.showProgressBar()
         compositeDisposable.add(
             repository.getDataFromDB()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                    { news -> view?.showData(news) },
+                .subscribe({ news ->
+                    view?.showData(news)
+                    view?.hideProgressBar()
+                },
                     { t -> t.message })
         )
     }
 
     override fun loadReversedData() {
+        view?.showProgressBar()
         compositeDisposable.add(
             repository.getReversedFromDB()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                    { news -> view?.showData(news) },
+                .subscribe({ news ->
+                    view?.showData(news)
+                    view?.hideProgressBar()
+                },
                     { t -> t.message })
         )
     }
 
     override fun refreshData() {
+        view?.showProgressBar()
         compositeDisposable.add(repository.refreshData()
             .subscribeOn(Schedulers.io())
             .doOnSuccess { news -> repository.insertData(news) }
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { news -> view?.showData(news) },
+            .subscribe({ news ->
+                view?.showData(news)
+                view?.hideProgressBar()
+            },
                 { t -> t.message })
         )
     }
